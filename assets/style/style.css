@@ -14,6 +14,11 @@ body {
 h1 {
   font-size: 2.2rem;
 }
+@media screen and (min-width: 426px) {
+  h1 {
+    font-size: 3.5em;
+  }
+}
 
 .container {
   background-color: hsl(235, 18%, 26%);
@@ -24,16 +29,16 @@ h1 {
 }
 
 .card {
-  width: 100%;
+  width: auto;
   background-color: hsl(0, 0%, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100dvh;
+  box-shadow: 1px 10px 20px rgba(0, 0, 0, 0.2);
 }
 @media screen and (min-width: 426px) {
   .card {
-    width: 80%;
     border-radius: 20px;
     flex-direction: row-reverse;
     height: auto;
@@ -48,6 +53,9 @@ h1 {
   display: none;
 }
 @media screen and (min-width: 426px) {
+  .card__image {
+    padding: 20px;
+  }
   .card__image .mobile_img {
     display: none;
   }
@@ -79,6 +87,7 @@ h1 {
   padding: 20px;
   z-index: 10;
   position: absolute;
+  box-shadow: 1px 10px 20px 20px rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 426px) {
   .card__success {
@@ -90,7 +99,7 @@ h1 {
 }
 @media screen and (min-width: 768px) {
   .card__success {
-    width: 50%;
+    width: 440px;
     padding: 35px;
     border-radius: 20px;
   }
