@@ -1,9 +1,9 @@
-@font-face {
-    font-family: "Roboto";
-    src: url("https://fonts.google.com/specimen/Roboto");
-    font-weight: 400, 700;
-}
-
+// @font-face {
+//     font-family: "Roboto";
+//     src: url("https://fonts.google.com/specimen/Roboto");
+//     font-weight: 400, 700;
+// }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -28,31 +28,184 @@ body {
     font-weight: 400;
 }
 
+h1{
+    font-size: 2.2rem;
+}
 
+.container {
+    background-color: $blue-700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+ 
+}
+
+//  .card_img{
+//        }
 
 .card {
     width: 100%;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
 
-    &__header {
+    // desktop and tablet
+    @media screen and (min-width: #{ $mobile + 1px }) {
+       width: 80%;
+       border-radius: 20px;
+       flex-direction: row-reverse;
+       height: auto;
+
+    }
+
+    &__image {
     
         img {
             width: 100%;
             height: auto;
+            display: block;
         }
-
+        .desktop_img, .tablet_img {
+            display: none;
+        }
+        @media screen and (min-width: #{$mobile+1px}) {
+            .mobile_img {
+                display: none;
+            }
+            .tablet_img {
+                display: block;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            .tablet_img {
+                display: none;
+            }
+            .desktop_img {
+                display: block;
+            
+            }
+        }
     }
 
     &__content {
-        padding: 20px;
+        padding: 25px;
         display: flex;
         gap: 20px;
         flex-direction: column;
     }
 
+    &__success {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        background-color: $white;
+        gap: 20px;
+        padding: 20px;
+        z-index: 10;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: auto;
+
+        img {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: $blue-800;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: $grey;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        botton{
+            align-items: end;
+        }
+    }
 
 }
 
-.custom_list{
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
    
-    list-style-image: url("../images/icon-list.svg");
+
+    input {
+        border: 1px solid $grey;
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+        color: $grey;
+
+        &::placeholder {
+            color: $grey;
+        }
+
+        &:focus {
+            outline: 2px solid $red;
+        }
+    }
+
+   
+    
+    .form__error {
+        display: none;
+        color: $red;
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
+}
+
+button {
+    background-color: $blue-800;
+    color: $white;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+
+    &:hover {
+        background-color: darken($red, 10%);
+    }
+}
+
+// input {
+//         padding: 15px;
+//         border-radius: 5px;
+//         color: $grey;
+//         border: $grey;
+//     }
+
+.custom-list {
+    /* use background-image on each li for consistent custom bullets */
+    list-style: none; /* remove default bullets */
+    padding-left: 0; /* we'll add padding on lis themselves */
+
+    li {
+        margin-bottom: 0.75rem;
+        padding-left: 2rem; /* space for the image */
+        background-image: url("../images/icon-list.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 1rem; /* adjust if your icon is larger/smaller */
+    }
 }

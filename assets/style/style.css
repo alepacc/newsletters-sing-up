@@ -1,8 +1,4 @@
-@font-face {
-  font-family: "Roboto";
-  src: url("https://fonts.google.com/specimen/Roboto");
-  font-weight: 400, 700;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,20 +11,152 @@ body {
   font-weight: 400;
 }
 
+h1 {
+  font-size: 2.2rem;
+}
+
+.container {
+  background-color: hsl(235, 18%, 26%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .card {
   width: 100%;
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
 }
-.card__header img {
+@media screen and (min-width: 376px) {
+  .card {
+    width: 80%;
+    border-radius: 20px;
+    flex-direction: row-reverse;
+    height: auto;
+  }
+}
+.card__image img {
   width: 100%;
   height: auto;
+  display: block;
+}
+.card__image .desktop_img, .card__image .tablet_img {
+  display: none;
+}
+@media screen and (min-width: 376px) {
+  .card__image .mobile_img {
+    display: none;
+  }
+  .card__image .tablet_img {
+    display: block;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card__image .tablet_img {
+    display: none;
+  }
+  .card__image .desktop_img {
+    display: block;
+  }
 }
 .card__content {
-  padding: 20px;
+  padding: 25px;
   display: flex;
   gap: 20px;
   flex-direction: column;
 }
+.card__success {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: hsl(0, 0%, 100%);
+  gap: 20px;
+  padding: 20px;
+  z-index: 10;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: auto;
+}
+.card__success img {
+  margin-bottom: 20px;
+}
+.card__success h1 {
+  font-size: 2.2rem;
+  color: hsl(234, 29%, 20%);
+  margin-bottom: 10px;
+}
+.card__success p {
+  color: hsl(0, 0%, 58%);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.card__success botton {
+  align-items: end;
+}
 
-.custom_list {
-  list-style-image: url("../images/icon-list.svg");
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+form label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+form input {
+  border: 1px solid hsl(0, 0%, 58%);
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  color: hsl(0, 0%, 58%);
+}
+form input::-moz-placeholder {
+  color: hsl(0, 0%, 58%);
+}
+form input::placeholder {
+  color: hsl(0, 0%, 58%);
+}
+form input:focus {
+  outline: 2px solid hsl(4, 100%, 67%);
+}
+form .form__error {
+  display: none;
+  color: hsl(4, 100%, 67%);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+button {
+  background-color: hsl(234, 29%, 20%);
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+button:hover {
+  background-color: hsl(4, 100%, 57%);
+}
+
+.custom-list {
+  /* use background-image on each li for consistent custom bullets */
+  list-style: none; /* remove default bullets */
+  padding-left: 0; /* we'll add padding on lis themselves */
+}
+.custom-list li {
+  margin-bottom: 0.75rem;
+  padding-left: 2rem; /* space for the image */
+  background-image: url("../images/icon-list.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 1rem; /* adjust if your icon is larger/smaller */
 }/*# sourceMappingURL=style.css.map */
